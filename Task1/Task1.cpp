@@ -1,14 +1,20 @@
 ﻿#include <iostream>
 #include <vector>
 #include <algorithm>
+#include <iomanip>
 
 int main()
 {
     system("chcp 1251");
-    std::vector<int> multiply_vec{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-    std::cout << "Входные данные: ";
-    for (const int& num : multiply_vec) {
-        std::cout << num << " ";
+    std::srand(std::time(nullptr));
+    std::vector<int> multiply_vec;
+
+    std::cout << "Входные данные:  ";
+
+    for (int i = 0; i < 10; ++i) {
+        int random_num = std::rand() % 21 - 10; // генерация числа от -10 до 10
+        multiply_vec.push_back(random_num);
+        std::cout << std::setw(4) << random_num << " ";
     }
     std::cout << std::endl;
 
@@ -20,6 +26,6 @@ int main()
 
     std::cout << "Выходные данные: ";
     for (const int& num : multiply_vec) {
-        std::cout << num << " ";
+        std::cout << std::setw(4) << num << " ";
     }
 }
